@@ -655,12 +655,21 @@ input:focus {
 @media (max-width: 640px) {
     .header-actions {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-end;
     }
 
-    .theme-toggle,
+    .theme-toggle {
+        flex: 0 0 42px;
+        width: 42px;
+        min-width: 42px;
+        min-height: 42px;
+        height: 42px;
+        padding: 0;
+        border-radius: 50%;
+    }
+
     .admin-link {
-        flex: 1;
-        min-width: 140px;
+        flex: 0 0 auto;
+        min-width: 42px;
     }
 }
