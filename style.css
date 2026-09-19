@@ -84,8 +84,8 @@ body.light-theme .total-card h2 {
 }
 
 body.light-theme .angka-total {
-    color: #1f2d3d;
-    text-shadow: none;
+    color: #f59e0b;
+    text-shadow: 0 4px 18px rgba(245, 158, 11, 0.24);
 }
 
 body.light-theme .admin-link,
@@ -103,6 +103,9 @@ body.light-theme .card {
 body.light-theme .total-card {
     background: linear-gradient(135deg, rgba(191, 219, 254, 0.9), rgba(255, 255, 255, 0.78));
     border: 1px solid rgba(37, 99, 235, 0.12);
+    background-size: 180% 180%;
+    animation: totalCardFlow 8s ease-in-out infinite;
+    box-shadow: 0 14px 32px rgba(96, 165, 250, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 body.light-theme .calon-a {
@@ -165,6 +168,15 @@ header {
     box-shadow: 0 10px 30px var(--shadow);
     flex-wrap: wrap;
     gap: 12px;
+}
+
+#display-page header {
+    justify-content: center;
+}
+
+#display-page .title {
+    width: 100%;
+    text-align: center;
 }
 
 .header-actions {
@@ -459,6 +471,13 @@ header {
     align-items: center;
     border-radius: 28px;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+    background-size: 180% 180%;
+    animation: totalCardFlow 8s ease-in-out infinite;
+}
+
+@keyframes totalCardFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .total-card::before {
@@ -486,6 +505,16 @@ header {
 body.dark-theme .angka-total,
 body.dark-theme .angka-calon {
     text-shadow: none;
+}
+
+body.dark-theme .total-card h2 {
+    color: #1e293b;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+body.dark-theme .total-card .angka-total {
+    color: #047857;
+    text-shadow: 0 4px 18px rgba(4, 120, 87, 0.28);
 }
 
 .count-pulse {
