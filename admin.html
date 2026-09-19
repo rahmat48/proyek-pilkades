@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin Pilkades 2027</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="admin-page">
+    <div class="container">
+        <header>
+            <h1 class="title">REKAPITULASI SUARA</h1>
+            <div class="header-actions">
+                <button type="button" class="theme-toggle" id="themeToggle">Mode Terang</button>
+                <a href="index.html" class="admin-link">Lihat Display</a>
+                <button id="btnLogout" class="btn btn-danger hidden">Logout</button>
+            </div>
+        </header>
+
+        <!-- Login Form -->
+        <div id="loginSection" class="card login-card">
+            <h2>Login Panitia</h2>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <div id="loginError" class="error-msg"></div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="adminPanel" class="hidden">
+            <div class="card admin-controls">
+                <h3>Surat Suara Masuk</h3>
+                <div class="control-group">
+                    <span class="admin-angka" id="adminTotal">0</span>
+                </div>
+            </div>
+
+            <div class="grid-calon">
+                <div class="card calon-card calon-a">
+                    <h3>Calon A</h3>
+                    <div class="control-group">
+                        <button class="btn btn-minus" data-target="A">-1</button>
+                        <span class="admin-angka" id="adminA">0</span>
+                        <button class="btn btn-plus" data-target="A">+1</button>
+                    </div>
+                </div>
+
+                <div class="card calon-card calon-b">
+                    <h3>Calon B</h3>
+                    <div class="control-group">
+                        <button class="btn btn-minus" data-target="B">-1</button>
+                        <span class="admin-angka" id="adminB">0</span>
+                        <button class="btn btn-plus" data-target="B">+1</button>
+                    </div>
+                </div>
+
+                <div class="card calon-card rusak">
+                    <h3>Surat Rusak</h3>
+                    <div class="control-group">
+                        <button class="btn btn-minus" data-target="Rusak">-1</button>
+                        <span class="admin-angka" id="adminRusak">0</span>
+                        <button class="btn btn-plus" data-target="Rusak">+1</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reset-section">
+                <button id="btnReset" class="btn btn-danger btn-large">RESET SEMUA KE 0</button>
+            </div>
+
+            <div class="announcement-launcher">
+                <button id="btnOpenAnnouncement" class="btn btn-primary announcement-icon-button" type="button" aria-label="Buat pengumuman" title="Buat pengumuman"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="announcementModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="announcementTitle">
+        <div class="modal-backdrop" data-close-announcement></div>
+        <div class="modal-card">
+            <button id="btnCloseAnnouncement" class="modal-close" type="button" aria-label="Tutup">&times;</button>
+            <h3 id="announcementTitle">Pengumuman</h3>
+            <form id="announcementForm" class="announcement-form">
+                <textarea id="announcementInput" rows="3" placeholder="Tulis pengumuman..." maxlength="180"></textarea>
+                <button type="submit" class="btn btn-primary">Simpan Pengumuman</button>
+                <div id="announcementStatus" class="form-status" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="resetModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+        <div class="modal-backdrop" data-close-reset></div>
+        <div class="modal-card reset-modal-card">
+            <button id="btnCloseReset" class="modal-close" type="button" aria-label="Tutup">&times;</button>
+            <div class="reset-icon" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3 id="resetTitle">Reset Semua Data?</h3>
+            <p class="reset-message">Semua jumlah suara A, B, dan surat rusak akan dikembalikan menjadi 0.</p>
+            <div class="reset-actions">
+                <button id="btnCancelReset" class="btn btn-secondary" type="button">Batal</button>
+                <button id="btnConfirmReset" class="btn btn-danger" type="button">Ya, Reset</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

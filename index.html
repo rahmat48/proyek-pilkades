@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Suara Pilkades 2027</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="display-page">
+    <div class="container">
+        <header>
+            <h1 class="title">REKAP SUARA PILKADES 2027</h1>
+            <div class="header-actions">
+                <button type="button" class="theme-toggle" id="themeToggle">Mode Terang</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="announcement-bar hidden">
+                <div class="announcement-label">PENGUMUMAN</div>
+                <div class="announcement-track">
+                    <div class="announcement-text" id="announcementText">Tidak ada pengumuman</div>
+                </div>
+            </div>
+
+            <div class="card total-card">
+                <h2>Surat Suara Masuk</h2>
+                <div class="angka-total" id="total">0</div>
+            </div>
+
+            <div class="grid-calon">
+                <div class="card calon-card calon-a">
+                    <h2>Calon A</h2>
+                    <div class="angka-calon" id="suaraA">0</div>
+                    <div class="stats">
+                        <span id="pctA">0%</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="barA"></div>
+                    </div>
+                </div>
+
+                <div class="card calon-card calon-b">
+                    <h2>Calon B</h2>
+                    <div class="angka-calon" id="suaraB">0</div>
+                    <div class="stats">
+                        <span id="pctB">0%</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="barB"></div>
+                    </div>
+                </div>
+
+                <div class="card calon-card rusak">
+                    <h2>Surat Rusak</h2>
+                    <div class="angka-calon" id="suaraRusak">0</div>
+                    <div class="stats">
+                        <span>Tidak Dihitung</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
