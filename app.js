@@ -37,7 +37,8 @@ const applyTheme = (theme) => {
     });
 };
 
-const savedTheme = localStorage.getItem(THEME_KEY) || 'dark';
+const defaultTheme = document.getElementById('display-page') ? 'light' : 'dark';
+const savedTheme = localStorage.getItem(THEME_KEY) || defaultTheme;
 applyTheme(savedTheme);
 
 document.querySelectorAll('.theme-toggle').forEach((button) => {
