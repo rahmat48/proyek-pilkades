@@ -109,12 +109,14 @@ if (document.getElementById('display-page')) {
         pulseElement('suaraRusak');
 
         // Hitung persentase & Progress bar
-        const totalSah = (Number(data.A) || 0) + (Number(data.B) || 0);
+        const votesA = Number(data.A) || 0;
+        const votesB = Number(data.B) || 0;
+        const totalSah = votesA + votesB;
         let pctA = 0, pctB = 0;
         
         if (totalSah > 0) {
-            pctA = ((data.A / totalSah) * 100).toFixed(1);
-            pctB = ((data.B / totalSah) * 100).toFixed(1);
+            pctA = ((votesA / totalSah) * 100).toFixed(1);
+            pctB = ((votesB / totalSah) * 100).toFixed(1);
         }
 
         document.getElementById('pctA').innerText = pctA + '%';
@@ -122,6 +124,29 @@ if (document.getElementById('display-page')) {
         
         document.getElementById('barA').style.width = pctA + '%';
         document.getElementById('barB').style.width = pctB + '%';
+
+        const barA = document.getElementById('barA');
+        const barB = document.getElementById('barB');
+        const barClasses = ['bar-tie', 'bar-winner', 'bar-loser'];
+        barA.classList.remove(...barClasses);
+        barB.classList.remove(...barClasses);
+
+        if (votesA === votesB) {
+            barA.classList.add('bar-tie');
+            barB.classList.add('bar-tie');
+            barA.style.background = 'linear-gradient(90deg, #facc15, #eab308)';
+            barB.style.background = 'linear-gradient(90deg, #facc15, #eab308)';
+        } else if (votesA > votesB) {
+            barA.classList.add('bar-winner');
+            barB.classList.add('bar-loser');
+            barA.style.background = 'linear-gradient(90deg, #22c55e, #15803d)';
+            barB.style.background = 'linear-gradient(90deg, #f87171, #dc2626)';
+        } else {
+            barA.classList.add('bar-loser');
+            barB.classList.add('bar-winner');
+            barA.style.background = 'linear-gradient(90deg, #f87171, #dc2626)';
+            barB.style.background = 'linear-gradient(90deg, #22c55e, #15803d)';
+        }
     });
 }
 
