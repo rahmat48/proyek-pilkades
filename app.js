@@ -33,7 +33,8 @@ const applyTheme = (theme) => {
 
     document.querySelectorAll('.theme-toggle').forEach((button) => {
         button.setAttribute('title', isLight ? 'Mode Gelap' : 'Mode Terang');
-        button.innerHTML = isLight ? '☾' : '☀';
+        button.classList.toggle('moon-icon', isLight);
+        button.innerHTML = isLight ? '🌙' : '🌞';
     });
 };
 
